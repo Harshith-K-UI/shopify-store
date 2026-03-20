@@ -1,235 +1,427 @@
 {%- style -%}
-  .about-us-section {
-    padding: 60px 0;
+  /* ============================================
+     ABOUT US — TFI-BANISA Premium Dark Aesthetic
+     ============================================ */
+
+  .about-page {
+    --about-dark: #111111;
+    --about-navy: #1a1a2e;
+    --about-accent: #e8e8e8;
+    --about-muted: #999999;
+    --about-white: #ffffff;
+    --about-surface: #0f0f0f;
   }
 
-  .about-us-section + .about-us-section {
-    padding-top: 0;
-  }
-
+  /* --- HERO --- */
   .about-hero {
     text-align: center;
-    padding: 80px 0 60px;
+    padding: 100px 0 80px;
+    background: var(--about-dark);
+    color: var(--about-white);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .about-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(ellipse at center top, rgba(255,255,255,0.03) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .about-hero__eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--about-muted);
+    margin-bottom: 24px;
   }
 
   .about-hero__title {
-    font-size: 4rem;
-    font-weight: 800;
+    font-size: 5.5rem;
+    font-weight: 900;
     text-transform: uppercase;
-    letter-spacing: 0.06em;
-    line-height: 1.1;
-    margin-bottom: 20px;
+    letter-spacing: 0.04em;
+    line-height: 1.05;
+    margin-bottom: 28px;
+    color: var(--about-white);
   }
 
   .about-hero__subtitle {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     font-weight: 400;
-    opacity: 0.7;
-    max-width: 600px;
+    color: var(--about-muted);
+    max-width: 650px;
     margin: 0 auto;
-    line-height: 1.6;
+    line-height: 1.7;
   }
 
-  .about-grid {
+  /* --- STAT BAR --- */
+  .about-stats {
+    background: var(--about-navy);
+    padding: 50px 0;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .about-stats__grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: center;
-    padding: 40px 0;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    text-align: center;
   }
 
-  .about-grid--reverse {
-    direction: rtl;
+  .about-stat {
+    padding: 20px 16px;
+    position: relative;
   }
 
-  .about-grid--reverse > * {
-    direction: ltr;
+  .about-stat + .about-stat::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 25%;
+    height: 50%;
+    width: 1px;
+    background: rgba(255,255,255,0.1);
   }
 
-  .about-grid__content {
-    padding: 20px 0;
-  }
-
-  .about-grid__eyebrow {
+  .about-stat__number {
+    font-size: 3rem;
+    font-weight: 900;
+    color: var(--about-white);
     text-transform: uppercase;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.02em;
+    line-height: 1.1;
+    margin-bottom: 8px;
+  }
+
+  .about-stat__label {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--about-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+  }
+
+  /* --- STORY SECTIONS --- */
+  .about-story {
+    padding: 90px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+  }
+
+  .about-story--dark {
+    background: var(--about-dark);
+    color: var(--about-white);
+    border-bottom-color: rgba(255,255,255,0.06);
+  }
+
+  .about-story__inner {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .about-story__eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
     font-size: 1.1rem;
     font-weight: 600;
-    opacity: 0.5;
-    margin-bottom: 12px;
-  }
-
-  .about-grid__heading {
-    font-size: 2.4rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    line-height: 1.15;
     margin-bottom: 20px;
   }
 
-  .about-grid__text {
+  .about-story--dark .about-story__eyebrow {
+    color: var(--about-muted);
+  }
+
+  .about-story:not(.about-story--dark) .about-story__eyebrow {
+    color: #888888;
+  }
+
+  .about-story__heading {
+    font-size: 3.2rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    line-height: 1.1;
+    margin-bottom: 36px;
+  }
+
+  .about-story__text {
     font-size: 1.5rem;
-    line-height: 1.8;
-    opacity: 0.8;
+    line-height: 1.85;
+    text-align: left;
   }
 
-  .about-grid__text p {
-    margin-bottom: 16px;
+  .about-story--dark .about-story__text {
+    color: rgba(255,255,255,0.7);
   }
 
-  .about-grid__image {
-    width: 100%;
-    aspect-ratio: 4 / 5;
-    object-fit: cover;
-    display: block;
+  .about-story:not(.about-story--dark) .about-story__text {
+    color: #444444;
   }
 
-  .about-grid__image-placeholder {
-    width: 100%;
-    aspect-ratio: 4 / 5;
-    background: #f0f0f0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  .about-story__text p {
+    margin-bottom: 20px;
   }
 
-  .about-values {
+  .about-story__text p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* --- DECORATIVE QUOTE BLOCK --- */
+  .about-quote {
+    margin-top: 50px;
+    padding: 40px 0;
+    border-top: 2px solid rgba(255,255,255,0.08);
     text-align: center;
-    padding: 60px 0;
+  }
+
+  .about-story:not(.about-story--dark) .about-quote {
+    border-top-color: rgba(0,0,0,0.08);
+  }
+
+  .about-quote__text {
+    font-size: 2rem;
+    font-weight: 700;
+    font-style: italic;
+    line-height: 1.4;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .about-story--dark .about-quote__text {
+    color: rgba(255,255,255,0.85);
+  }
+
+  .about-story:not(.about-story--dark) .about-quote__text {
+    color: #222222;
+  }
+
+  /* --- VALUES / MISSION --- */
+  .about-values {
+    background: var(--about-dark);
+    color: var(--about-white);
+    padding: 100px 0;
   }
 
   .about-values__title {
-    font-size: 2.4rem;
-    font-weight: 700;
+    font-size: 3rem;
+    font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 0.04em;
-    margin-bottom: 50px;
+    letter-spacing: 0.03em;
+    text-align: center;
+    margin-bottom: 64px;
+    color: var(--about-white);
   }
 
   .about-values__grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
+    gap: 0;
   }
 
   .about-value-card {
-    padding: 40px 30px;
+    padding: 48px 36px;
+    text-align: center;
+    position: relative;
+    border: 1px solid rgba(255,255,255,0.06);
+    transition: background 0.3s ease;
+  }
+
+  .about-value-card:hover {
+    background: rgba(255,255,255,0.03);
   }
 
   .about-value-card__icon {
-    font-size: 3rem;
-    margin-bottom: 20px;
+    font-size: 3.2rem;
+    margin-bottom: 24px;
+    display: block;
   }
 
   .about-value-card__title {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.04em;
-    margin-bottom: 12px;
+    letter-spacing: 0.06em;
+    margin-bottom: 16px;
+    color: var(--about-white);
   }
 
   .about-value-card__text {
     font-size: 1.4rem;
-    line-height: 1.7;
-    opacity: 0.7;
+    line-height: 1.75;
+    color: var(--about-muted);
   }
 
+  /* --- CTA --- */
   .about-cta {
+    background: var(--about-white);
+    color: var(--about-dark);
+    padding: 100px 0;
     text-align: center;
-    padding: 80px 0;
   }
 
   .about-cta__heading {
-    font-size: 2.8rem;
-    font-weight: 700;
+    font-size: 3.2rem;
+    font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.03em;
     margin-bottom: 20px;
+    color: var(--about-dark);
   }
 
   .about-cta__text {
     font-size: 1.5rem;
-    line-height: 1.7;
-    opacity: 0.7;
-    max-width: 550px;
-    margin: 0 auto 30px;
+    line-height: 1.75;
+    color: #666666;
+    max-width: 580px;
+    margin: 0 auto 40px;
   }
 
   .about-cta__button {
     display: inline-block;
-    background: #111111;
-    color: #ffffff;
+    background: var(--about-dark);
+    color: var(--about-white);
     text-transform: uppercase;
-    letter-spacing: 0.08em;
-    font-weight: 600;
+    letter-spacing: 0.1em;
+    font-weight: 700;
     font-size: 1.3rem;
-    padding: 16px 48px;
+    padding: 18px 56px;
     border-radius: 999px;
     text-decoration: none;
-    transition: opacity 0.25s ease;
+    transition: all 0.3s ease;
+    border: 2px solid var(--about-dark);
   }
 
   .about-cta__button:hover {
-    opacity: 0.85;
-    color: #ffffff;
+    background: transparent;
+    color: var(--about-dark);
   }
 
+  /* --- RESPONSIVE --- */
   @media screen and (max-width: 749px) {
+    .about-hero {
+      padding: 70px 0 50px;
+    }
+
     .about-hero__title {
-      font-size: 2.8rem;
+      font-size: 3.2rem;
     }
 
-    .about-grid {
-      grid-template-columns: 1fr;
-      gap: 30px;
+    .about-hero__subtitle {
+      font-size: 1.4rem;
     }
 
-    .about-grid--reverse {
-      direction: ltr;
+    .about-stats__grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0;
+    }
+
+    .about-stat {
+      padding: 20px 12px;
+    }
+
+    .about-stat:nth-child(3)::before,
+    .about-stat:nth-child(1)::before {
+      display: none;
+    }
+
+    .about-stat__number {
+      font-size: 2.2rem;
+    }
+
+    .about-story {
+      padding: 60px 0;
+    }
+
+    .about-story__heading {
+      font-size: 2.2rem;
+    }
+
+    .about-story__text {
+      font-size: 1.4rem;
+    }
+
+    .about-quote__text {
+      font-size: 1.6rem;
+    }
+
+    .about-values {
+      padding: 60px 0;
+    }
+
+    .about-values__title {
+      font-size: 2.2rem;
+      margin-bottom: 40px;
     }
 
     .about-values__grid {
       grid-template-columns: 1fr;
     }
 
+    .about-cta {
+      padding: 60px 0;
+    }
+
     .about-cta__heading {
-      font-size: 2rem;
+      font-size: 2.2rem;
     }
   }
 {%- endstyle -%}
 
-<div class="about-us-section about-hero page-width">
-  <h1 class="about-hero__title">{{ section.settings.hero_title }}</h1>
-  <p class="about-hero__subtitle">{{ section.settings.hero_subtitle }}</p>
+{%- comment -%} ====== HERO ====== {%- endcomment -%}
+<div class="about-hero">
+  <div class="page-width">
+    <div class="about-hero__eyebrow">{{ section.settings.hero_eyebrow }}</div>
+    <h1 class="about-hero__title">{{ section.settings.hero_title }}</h1>
+    <p class="about-hero__subtitle">{{ section.settings.hero_subtitle }}</p>
+  </div>
 </div>
 
+{%- comment -%} ====== STAT BAR ====== {%- endcomment -%}
+<div class="about-stats">
+  <div class="page-width">
+    <div class="about-stats__grid">
+      <div class="about-stat">
+        <div class="about-stat__number">{{ section.settings.stat_1_value }}</div>
+        <div class="about-stat__label">{{ section.settings.stat_1_label }}</div>
+      </div>
+      <div class="about-stat">
+        <div class="about-stat__number">{{ section.settings.stat_2_value }}</div>
+        <div class="about-stat__label">{{ section.settings.stat_2_label }}</div>
+      </div>
+      <div class="about-stat">
+        <div class="about-stat__number">{{ section.settings.stat_3_value }}</div>
+        <div class="about-stat__label">{{ section.settings.stat_3_label }}</div>
+      </div>
+      <div class="about-stat">
+        <div class="about-stat__number">{{ section.settings.stat_4_value }}</div>
+        <div class="about-stat__label">{{ section.settings.stat_4_label }}</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{%- comment -%} ====== CONTENT BLOCKS ====== {%- endcomment -%}
 {%- for block in section.blocks -%}
   {%- case block.type -%}
 
     {%- when 'story_block' -%}
-      <div class="about-us-section page-width" {{ block.shopify_attributes }}>
-        <div class="about-grid {% if block.settings.reverse_layout %}about-grid--reverse{% endif %}">
-          <div class="about-grid__content">
-            <div class="about-grid__eyebrow">{{ block.settings.eyebrow }}</div>
-            <h2 class="about-grid__heading">{{ block.settings.heading }}</h2>
-            <div class="about-grid__text rte">{{ block.settings.text }}</div>
-          </div>
-          <div>
-            {%- if block.settings.image != blank -%}
-              {{
-                block.settings.image
-                | image_url: width: 800
-                | image_tag:
-                  class: 'about-grid__image',
-                  loading: 'lazy',
-                  widths: '400, 600, 800',
-                  alt: block.settings.heading
-              }}
-            {%- else -%}
-              <div class="about-grid__image-placeholder">
-                {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
+      <div class="about-story {% if block.settings.dark_background %}about-story--dark{% endif %}" {{ block.shopify_attributes }}>
+        <div class="page-width">
+          <div class="about-story__inner">
+            <div class="about-story__eyebrow">{{ block.settings.eyebrow }}</div>
+            <h2 class="about-story__heading">{{ block.settings.heading }}</h2>
+            <div class="about-story__text rte">{{ block.settings.text }}</div>
+            {%- if block.settings.quote != blank -%}
+              <div class="about-quote">
+                <p class="about-quote__text">"{{ block.settings.quote }}"</p>
               </div>
             {%- endif -%}
           </div>
@@ -237,8 +429,8 @@
       </div>
 
     {%- when 'values' -%}
-      <div class="about-us-section page-width" {{ block.shopify_attributes }}>
-        <div class="about-values">
+      <div class="about-values" {{ block.shopify_attributes }}>
+        <div class="page-width">
           <h2 class="about-values__title">{{ block.settings.heading }}</h2>
           <div class="about-values__grid">
             {%- for i in (1..3) -%}
@@ -247,7 +439,7 @@
               {%- assign icon_key = 'value_' | append: i | append: '_icon' -%}
               {%- if block.settings[title_key] != blank -%}
                 <div class="about-value-card">
-                  <div class="about-value-card__icon">{{ block.settings[icon_key] }}</div>
+                  <span class="about-value-card__icon">{{ block.settings[icon_key] }}</span>
                   <h3 class="about-value-card__title">{{ block.settings[title_key] }}</h3>
                   <p class="about-value-card__text">{{ block.settings[text_key] }}</p>
                 </div>
@@ -258,8 +450,8 @@
       </div>
 
     {%- when 'cta' -%}
-      <div class="about-us-section page-width" {{ block.shopify_attributes }}>
-        <div class="about-cta">
+      <div class="about-cta" {{ block.shopify_attributes }}>
+        <div class="page-width">
           <h2 class="about-cta__heading">{{ block.settings.heading }}</h2>
           <p class="about-cta__text">{{ block.settings.text }}</p>
           {%- if block.settings.button_label != blank -%}
@@ -280,6 +472,16 @@
   "class": "section",
   "settings": [
     {
+      "type": "header",
+      "content": "Hero Section"
+    },
+    {
+      "type": "text",
+      "id": "hero_eyebrow",
+      "label": "Eyebrow text",
+      "default": "TFI-BANISA"
+    },
+    {
       "type": "text",
       "id": "hero_title",
       "label": "Hero title",
@@ -289,7 +491,59 @@
       "type": "textarea",
       "id": "hero_subtitle",
       "label": "Hero subtitle",
-      "default": "Born from a passion for anime culture and premium streetwear. We create apparel that lets you wear your fandom with pride."
+      "default": "Premium anime and gym graphic t-shirts, designed with intention and printed in India. We bridge the gap between fandom and fashion."
+    },
+    {
+      "type": "header",
+      "content": "Stats Bar"
+    },
+    {
+      "type": "text",
+      "id": "stat_1_value",
+      "label": "Stat 1 value",
+      "default": "100%"
+    },
+    {
+      "type": "text",
+      "id": "stat_1_label",
+      "label": "Stat 1 label",
+      "default": "Premium Cotton"
+    },
+    {
+      "type": "text",
+      "id": "stat_2_value",
+      "label": "Stat 2 value",
+      "default": "DTG"
+    },
+    {
+      "type": "text",
+      "id": "stat_2_label",
+      "label": "Stat 2 label",
+      "default": "Printed"
+    },
+    {
+      "type": "text",
+      "id": "stat_3_value",
+      "label": "Stat 3 value",
+      "default": "240"
+    },
+    {
+      "type": "text",
+      "id": "stat_3_label",
+      "label": "Stat 3 label",
+      "default": "GSM Fabric"
+    },
+    {
+      "type": "text",
+      "id": "stat_4_value",
+      "label": "Stat 4 value",
+      "default": "🇮🇳"
+    },
+    {
+      "type": "text",
+      "id": "stat_4_label",
+      "label": "Stat 4 label",
+      "default": "Made in India"
     }
   ],
   "blocks": [
@@ -316,15 +570,17 @@
           "default": "<p>What began as a simple idea between friends who loved anime and streetwear has grown into a movement. We noticed a gap in the market — anime merch that was either low quality or lacked real design thought. We set out to change that by creating premium apparel that bridges the gap between fandom and fashion.</p><p>Every piece in our collection is designed with intention, printed with care, and made to last. We believe your favorite characters deserve to be represented on clothing you're genuinely proud to wear — whether you're at a convention, on the streets, or just living your everyday life.</p>"
         },
         {
-          "type": "image_picker",
-          "id": "image",
-          "label": "Image"
+          "type": "text",
+          "id": "quote",
+          "label": "Decorative quote (optional)",
+          "info": "A short statement displayed below the text as a pull quote"
         },
         {
           "type": "checkbox",
-          "id": "reverse_layout",
-          "label": "Reverse layout",
-          "default": false
+          "id": "dark_background",
+          "label": "Dark background",
+          "default": false,
+          "info": "Alternating dark/light creates visual rhythm"
         }
       ]
     },
@@ -434,7 +690,8 @@
           "type": "story_block",
           "settings": {
             "eyebrow": "Our Beginning",
-            "heading": "Where It All Started"
+            "heading": "Where It All Started",
+            "quote": "We set out to make anime merch you'd actually be proud to wear."
           }
         },
         {
@@ -442,8 +699,9 @@
           "settings": {
             "eyebrow": "The Founder",
             "heading": "Built by a Fan, for Fans",
-            "text": "<p>Hi, I'm the founder of this brand. As a lifelong anime enthusiast and streetwear lover, I saw an opportunity to merge two worlds that rarely intersected well. I started designing from my room, testing prints, perfecting fits, and obsessing over every detail.</p><p>Today, every product still goes through the same obsessive process. I personally approve every design, test every fabric, and wear every piece before it hits the store. This isn't just a business — it's my passion made tangible.</p>",
-            "reverse_layout": true
+            "text": "<p>As a lifelong anime enthusiast and streetwear lover, I saw an opportunity to merge two worlds that rarely intersected well. I started designing from my room, testing prints, perfecting fits, and obsessing over every detail.</p><p>Today, every product still goes through the same obsessive process. I personally approve every design, test every fabric, and wear every piece before it hits the store. This isn't just a business — it's my passion made tangible.</p>",
+            "dark_background": true,
+            "quote": "I wear every piece before it hits the store."
           }
         },
         {
@@ -451,7 +709,8 @@
           "settings": {
             "eyebrow": "Our Process",
             "heading": "Designed with Intention",
-            "text": "<p>Our design process starts with the story. What moment, character, or emotion do we want to capture? From there, our artists sketch, iterate, and refine until every line feels right.</p><p>We use DTG (Direct-to-Garment) and screen printing on premium heavyweight cotton. Every color is calibrated, every placement is measured, and every piece is inspected before shipping. We don't cut corners because our community deserves the best.</p>"
+            "text": "<p>Our design process starts with the story. What moment, character, or emotion do we want to capture? From there, our artists sketch, iterate, and refine until every line feels right.</p><p>We use DTG (Direct-to-Garment) and screen printing on premium heavyweight cotton. Every color is calibrated, every placement is measured, and every piece is inspected before shipping. We don't cut corners because our community deserves the best.</p>",
+            "quote": "Every color calibrated. Every placement measured. Every piece inspected."
           }
         },
         {

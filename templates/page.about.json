@@ -19,8 +19,17 @@
     "about-us": {
       "type": "about-us",
       "settings": {
+        "hero_eyebrow": "TFI-BANISA",
         "hero_title": "Our Story",
-        "hero_subtitle": "Born from a passion for anime culture and premium streetwear. We create apparel that lets you wear your fandom with pride."
+        "hero_subtitle": "Premium anime and gym graphic t-shirts, designed with intention and printed in India. We bridge the gap between fandom and fashion.",
+        "stat_1_value": "100%",
+        "stat_1_label": "Premium Cotton",
+        "stat_2_value": "DTG",
+        "stat_2_label": "Printed",
+        "stat_3_value": "240",
+        "stat_3_label": "GSM Fabric",
+        "stat_4_value": "🇮🇳",
+        "stat_4_label": "Made in India"
       },
       "blocks": {
         "brand_story": {
@@ -29,7 +38,8 @@
             "eyebrow": "Our Beginning",
             "heading": "Where It All Started",
             "text": "<p>What began as a simple idea between friends who loved anime and streetwear has grown into a movement. We noticed a gap in the market — anime merch that was either low quality or lacked real design thought. We set out to change that by creating premium apparel that bridges the gap between fandom and fashion.</p><p>Every piece in our collection is designed with intention, printed with care, and made to last. We believe your favorite characters deserve to be represented on clothing you're genuinely proud to wear — whether you're at a convention, on the streets, or just living your everyday life.</p>",
-            "reverse_layout": false
+            "quote": "We set out to make anime merch you'd actually be proud to wear.",
+            "dark_background": false
           }
         },
         "founder": {
@@ -37,8 +47,9 @@
           "settings": {
             "eyebrow": "The Founder",
             "heading": "Built by a Fan, for Fans",
-            "text": "<p>Hi, I'm the founder of this brand. As a lifelong anime enthusiast and streetwear lover, I saw an opportunity to merge two worlds that rarely intersected well. I started designing from my room, testing prints, perfecting fits, and obsessing over every detail.</p><p>Today, every product still goes through the same obsessive process. I personally approve every design, test every fabric, and wear every piece before it hits the store. This isn't just a business — it's my passion made tangible.</p>",
-            "reverse_layout": true
+            "text": "<p>As a lifelong anime enthusiast and streetwear lover, I saw an opportunity to merge two worlds that rarely intersected well. I started designing from my room, testing prints, perfecting fits, and obsessing over every detail.</p><p>Today, every product still goes through the same obsessive process. I personally approve every design, test every fabric, and wear every piece before it hits the store. This isn't just a business — it's my passion made tangible.</p>",
+            "quote": "I wear every piece before it hits the store.",
+            "dark_background": true
           }
         },
         "process": {
@@ -47,7 +58,8 @@
             "eyebrow": "Our Process",
             "heading": "Designed with Intention",
             "text": "<p>Our design process starts with the story. What moment, character, or emotion do we want to capture? From there, our artists sketch, iterate, and refine until every line feels right.</p><p>We use DTG (Direct-to-Garment) and screen printing on premium heavyweight cotton. Every color is calibrated, every placement is measured, and every piece is inspected before shipping. We don't cut corners because our community deserves the best.</p>",
-            "reverse_layout": false
+            "quote": "Every color calibrated. Every placement measured. Every piece inspected.",
+            "dark_background": false
           }
         },
         "values": {
