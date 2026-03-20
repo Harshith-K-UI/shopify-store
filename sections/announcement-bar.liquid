@@ -2,56 +2,48 @@
 {{ 'component-slider.css' | asset_url | stylesheet_tag }}
 
 {%- style -%}
-  /* === ANIME APPAREL — Announcement Bar === */
+  /* === GYMSHARK-INSPIRED — Announcement Bar === */
 
-  /* Animated gradient background */
+  /* Clean light grey background — no animation */
   .utility-bar {
-    background: linear-gradient(90deg, #0a0a0f, #1a0a2e, #0a0a0f, #1a0a2e);
-    background-size: 300% 100%;
-    animation: announcementGradient 8s linear infinite;
-    border-bottom: 1px solid rgba(255, 45, 85, 0.2);
+    background: #f5f5f5;
+    background-size: initial;
+    animation: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
   }
 
-  @keyframes announcementGradient {
-    0% { background-position: 0% 50%; }
-    100% { background-position: 300% 50%; }
-  }
-
-  /* Text glow on announcements */
+  /* Clean black text — no glow, no shimmer */
   .announcement-bar__message {
     text-transform: uppercase;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.1em;
     font-weight: 500;
-    text-shadow: 0 0 6px rgba(255, 45, 85, 0.4);
+    font-size: 1.1rem;
+    text-shadow: none;
+    color: #111111;
   }
 
   .announcement-bar__message span {
-    background: linear-gradient(90deg, #f0e6d3, #ff2d55, #00d4ff, #f0e6d3);
-    background-size: 300% 100%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: textShimmer 4s linear infinite;
+    background: none;
+    -webkit-background-clip: initial;
+    -webkit-text-fill-color: #111111;
+    background-clip: initial;
+    animation: none;
   }
 
-  @keyframes textShimmer {
-    0% { background-position: 0% 50%; }
-    100% { background-position: 300% 50%; }
-  }
-
-  /* Arrow icon glow */
+  /* Arrow icon — clean black */
   .announcement-bar__link .icon-arrow {
-    filter: drop-shadow(0 0 4px rgba(255, 45, 85, 0.5));
+    filter: none;
   }
 
-  /* Slider button styling */
+  /* Slider button — clean black */
   .announcement-bar-slider .slider-button {
-    color: rgba(240, 230, 211, 0.7);
-    transition: color 0.3s ease;
+    color: #111111;
+    transition: opacity 0.2s ease;
   }
 
   .announcement-bar-slider .slider-button:hover {
-    color: #ff2d55;
+    color: #111111;
+    opacity: 0.6;
   }
 {%- endstyle -%}
 

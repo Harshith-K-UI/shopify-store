@@ -2,85 +2,70 @@
 {{ 'component-slider.css' | asset_url | stylesheet_tag }}
 
 {%- style -%}
-  /* === ANIME APPAREL — Multicolumn Glassmorphism Cards === */
+  /* === GYMSHARK-INSPIRED — Multicolumn Cards === */
 
-  /* Glassmorphism card style */
+  /* Flat clean card — no glassmorphism, no borders */
   .multicolumn-card {
-    background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 45, 85, 0.1);
-    border-radius: 8px;
-    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border: none;
+    border-radius: 0;
+    transition: opacity 0.3s ease;
     position: relative;
     overflow: hidden;
   }
 
-  /* Neon top-border accent on hover */
+  /* Remove animated gradient border */
   .multicolumn-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, #ff2d55, #00d4ff, #ff2d55);
-    background-size: 200% 100%;
-    opacity: 0;
-    transition: opacity 0.4s ease;
+    display: none;
   }
 
-  .multicolumn-card:hover::before {
-    opacity: 1;
-    animation: gradientSlide 2s linear infinite;
-  }
-
-  @keyframes gradientSlide {
-    0% { background-position: 0% 50%; }
-    100% { background-position: 200% 50%; }
-  }
-
-  /* Hover lift effect */
+  /* Clean hover — subtle opacity only */
   .multicolumn-card:hover {
-    transform: translateY(-8px);
-    border-color: rgba(255, 45, 85, 0.3);
-    box-shadow:
-      0 12px 40px rgba(255, 45, 85, 0.15),
-      0 0 0 1px rgba(255, 45, 85, 0.1);
-    background: rgba(255, 255, 255, 0.05);
+    transform: none;
+    border-color: transparent;
+    box-shadow: none;
+    background: transparent;
+    opacity: 0.9;
   }
 
-  /* Card title styling */
+  /* Card title — bold, uppercase */
   .multicolumn-card__info h3 {
     text-transform: uppercase;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.04em;
+    font-weight: 700;
   }
 
-  /* Card image hover zoom */
+  /* Subtle image zoom on hover */
   .multicolumn-card__image-wrapper img {
-    transition: transform 0.5s ease;
+    transition: transform 0.4s ease;
   }
 
   .multicolumn-card:hover .multicolumn-card__image-wrapper img {
-    transform: scale(1.06);
+    transform: scale(1.03);
   }
 
-  /* Section title */
+  /* Section title — clean uppercase */
   .multicolumn .title {
     text-transform: uppercase;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.06em;
+    font-weight: 700;
   }
 
-  /* CTA button at bottom */
+  /* CTA button — pill shape */
   .multicolumn .button--primary {
     text-transform: uppercase;
-    letter-spacing: 0.12em;
-    transition: all 0.3s ease;
+    letter-spacing: 0.06em;
+    font-weight: 600;
+    border-radius: 999px;
+    transition: opacity 0.25s ease;
   }
 
   .multicolumn .button--primary:hover {
-    box-shadow: 0 0 20px rgba(255, 45, 85, 0.4);
-    transform: translateY(-2px);
+    box-shadow: none;
+    transform: none;
+    opacity: 0.85;
   }
 {%- endstyle -%}
 

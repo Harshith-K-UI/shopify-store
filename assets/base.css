@@ -3597,7 +3597,7 @@ details-disclosure > details {
 }
 
 /* =============================================
-   ANIME APPAREL — Global Enhancements
+   GYMSHARK-INSPIRED — Global Enhancements
    ============================================= */
 
 /* Smooth scroll behavior */
@@ -3605,159 +3605,94 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Selection color — neon pink */
+/* Clean selection color — black */
 ::selection {
-  background-color: rgba(255, 45, 85, 0.3);
-  color: #f0e6d3;
+  background-color: rgba(17, 17, 17, 0.15);
+  color: #111111;
 }
 
-/* Global button enhancements */
+/* Global button — pill shape, clean transitions */
 .button--primary {
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  font-weight: 700;
-  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  letter-spacing: 0.06em;
+  font-weight: 600;
+  border-radius: 999px;
+  transition: opacity 0.25s ease;
   position: relative;
   overflow: hidden;
 }
 
 .button--primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 20px rgba(255, 45, 85, 0.35);
+  transform: none;
+  box-shadow: none;
+  opacity: 0.85;
 }
 
+/* No sweep animation on buttons */
 .button--primary::after {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(
-    45deg,
-    transparent 30%,
-    rgba(255, 255, 255, 0.08) 50%,
-    transparent 70%
-  );
-  transform: translateX(-100%);
-  transition: transform 0.6s ease;
-}
-
-.button--primary:hover::after {
-  transform: translateX(100%);
+  display: none;
 }
 
 .button--secondary {
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  transition: all 0.3s ease;
+  letter-spacing: 0.06em;
+  font-weight: 600;
+  border-radius: 999px;
+  transition: opacity 0.25s ease;
 }
 
 .button--secondary:hover {
-  border-color: rgba(255, 45, 85, 0.6);
-  box-shadow: 0 0 12px rgba(255, 45, 85, 0.2);
+  border-color: rgba(17, 17, 17, 0.5);
+  box-shadow: none;
+  opacity: 0.85;
 }
 
-/* Enhanced link hover transitions */
+/* Clean link hover transitions */
 .link,
 .customer a {
-  transition: color 0.3s ease, text-decoration-thickness 0.3s ease;
+  transition: opacity 0.2s ease;
 }
 
 .underlined-link:hover,
 .customer a:hover,
 .inline-richtext a:hover {
-  text-shadow: 0 0 6px rgba(255, 45, 85, 0.3);
+  text-shadow: none;
+  opacity: 0.7;
 }
 
-/* Global heading enhancements */
+/* Global heading — uppercase, bold, tight tracking */
 h1, h2, h3,
 .h0, .h1, .h2, .h3 {
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.04em;
+  font-weight: 700;
 }
 
-/* Neon glow utility class */
-.neon-glow {
-  text-shadow:
-    0 0 7px rgba(255, 45, 85, 0.6),
-    0 0 20px rgba(255, 45, 85, 0.4),
-    0 0 42px rgba(255, 45, 85, 0.2);
-}
-
-/* Neon accent text color */
-.neon-accent {
-  color: #ff2d55;
-}
-
-/* Cyan accent */
-.cyan-accent {
-  color: #00d4ff;
-}
-
-/* Custom animation keyframes */
-@keyframes neonGlow {
-  0%, 100% {
-    text-shadow:
-      0 0 5px rgba(255, 45, 85, 0.4),
-      0 0 15px rgba(255, 45, 85, 0.2);
-  }
-  50% {
-    text-shadow:
-      0 0 10px rgba(255, 45, 85, 0.8),
-      0 0 30px rgba(255, 45, 85, 0.4),
-      0 0 50px rgba(255, 45, 85, 0.2);
-  }
-}
-
-@keyframes neonFlicker {
-  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
-    text-shadow:
-      0 0 4px rgba(255, 45, 85, 0.6),
-      0 0 11px rgba(255, 45, 85, 0.4),
-      0 0 30px rgba(255, 45, 85, 0.2);
-  }
-  20%, 24%, 55% {
-    text-shadow: none;
-  }
-}
-
-@keyframes slideInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Horizontal rule — neon style */
+/* Clean horizontal rule */
 hr {
-  background: linear-gradient(90deg, transparent, rgba(255, 45, 85, 0.3), transparent);
+  background: rgba(17, 17, 17, 0.1);
 }
 
-/* Footer and header border enhancements */
+/* Header — clean bottom border */
 .section-header {
-  border-bottom: 1px solid rgba(255, 45, 85, 0.15);
+  border-bottom: 1px solid rgba(17, 17, 17, 0.08);
 }
 
-/* Scrollbar styling for webkit browsers */
+/* Clean scrollbar (webkit) */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #0a0a0f;
+  background: #f5f5f5;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #ff2d55, #00d4ff);
-  border-radius: 4px;
+  background: #cccccc;
+  border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #ff6b8a, #00e5ff);
+  background: #999999;
 }
 

@@ -2,75 +2,65 @@
 {{ 'newsletter-section.css' | asset_url | stylesheet_tag }}
 
 {%- style -%}
-  /* === ANIME APPAREL — Newsletter Section === */
+  /* === GYMSHARK-INSPIRED — Newsletter Section === */
 
-  /* Newsletter container — subtle animated border */
+  /* Newsletter container — clean, no animated border */
   .newsletter__wrapper {
     position: relative;
     overflow: hidden;
   }
 
   .newsletter__wrapper::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, #ff2d55, #00d4ff, transparent);
-    background-size: 200% 100%;
-    animation: shimmerBorder 3s linear infinite;
+    display: none;
   }
 
-  @keyframes shimmerBorder {
-    0% { background-position: -200% 0; }
-    100% { background-position: 200% 0; }
-  }
-
-  /* Heading styling */
+  /* Heading — bold, uppercase, no glow */
   .newsletter__wrapper h2 {
     text-transform: uppercase;
-    letter-spacing: 0.12em;
-    text-shadow: 0 0 8px rgba(255, 45, 85, 0.3);
+    letter-spacing: 0.06em;
+    font-weight: 700;
+    text-shadow: none;
   }
 
-  /* Glowing input focus effect */
+  /* Clean input — dark border, no glow */
   .newsletter-form .field__input {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 45, 85, 0.2);
-    transition: all 0.3s ease;
+    background: transparent;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    border-radius: 999px;
+    transition: border-color 0.25s ease;
     color: inherit;
+    padding: 1.2rem 2rem;
   }
 
   .newsletter-form .field__input:focus {
-    border-color: #ff2d55;
-    box-shadow:
-      0 0 8px rgba(255, 45, 85, 0.4),
-      0 0 20px rgba(255, 45, 85, 0.15);
+    border-color: #111111;
+    box-shadow: none;
     outline: none;
-    background: rgba(255, 255, 255, 0.08);
+    background: transparent;
   }
 
-  /* Submit button with neon gradient */
+  /* Submit button — solid black pill */
   .newsletter-form__button {
-    background: linear-gradient(135deg, #ff2d55, #ff6b8a);
+    background: #111111;
     border: none;
-    transition: all 0.3s ease;
+    border-radius: 999px;
+    transition: opacity 0.25s ease;
   }
 
   .newsletter-form__button:hover {
-    background: linear-gradient(135deg, #ff6b8a, #ff2d55);
-    box-shadow: 0 0 16px rgba(255, 45, 85, 0.5);
-    transform: scale(1.05);
+    background: #111111;
+    box-shadow: none;
+    transform: none;
+    opacity: 0.8;
   }
 
   .newsletter-form__button .svg-wrapper {
     filter: brightness(10);
   }
 
-  /* Success message styling */
+  /* Success message */
   .newsletter-form__message--success {
-    color: #00d4ff;
+    color: #111111;
   }
 {%- endstyle -%}
 

@@ -1,76 +1,82 @@
 {{ 'section-image-banner.css' | asset_url | stylesheet_tag }}
 
 {%- style -%}
-  /* === ANIME APPAREL — Hero Banner Enhancements === */
+  /* === GYMSHARK-INSPIRED — Hero Banner === */
 
-  /* Neon glow text effect on banner headings */
+  /* Bold uppercase heading — clean, no glow */
   .banner__heading {
     text-transform: uppercase;
-    letter-spacing: 0.15em;
-    text-shadow:
-      0 0 10px rgba(255, 45, 85, 0.6),
-      0 0 30px rgba(255, 45, 85, 0.3),
-      0 0 60px rgba(255, 45, 85, 0.15);
-  }
-
-  /* Subtle floating animation for banner content */
-  @keyframes bannerFloat {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-8px); }
-  }
-
-  .banner__content .banner__box {
-    animation: bannerFloat 4s ease-in-out infinite;
-  }
-
-  /* Pulsing glow on primary CTA buttons */
-  @keyframes neonPulse {
-    0%, 100% { box-shadow: 0 0 8px rgba(255, 45, 85, 0.5), 0 0 20px rgba(255, 45, 85, 0.2); }
-    50% { box-shadow: 0 0 16px rgba(255, 45, 85, 0.8), 0 0 40px rgba(255, 45, 85, 0.4); }
-  }
-
-  .banner__buttons .button--primary {
-    animation: neonPulse 2.5s ease-in-out infinite;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.04em;
     font-weight: 700;
+    text-shadow: none;
+    line-height: 1.05;
+  }
+
+  /* No floating animation — static, confident positioning */
+  .banner__content .banner__box {
+    animation: none;
+    background: transparent;
     border: none;
+    box-shadow: none;
+  }
+
+  /* Primary CTA — pill-shaped, solid black */
+  .banner__buttons .button--primary {
+    animation: none;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 999px;
+    padding: 1.2rem 3rem;
+    transition: opacity 0.25s ease, transform 0.25s ease;
   }
 
   .banner__buttons .button--primary:hover {
     animation: none;
-    box-shadow: 0 0 24px rgba(255, 45, 85, 1), 0 0 60px rgba(255, 45, 85, 0.5);
-    transform: scale(1.05);
-    transition: all 0.3s ease;
+    box-shadow: none;
+    opacity: 0.85;
+    transform: none;
   }
 
-  /* Secondary button — outlined with neon border */
+  /* Secondary CTA — underlined link style (like Gymshark's "Shop Now") */
   .banner__buttons .button--secondary {
-    border: 2px solid rgba(255, 45, 85, 0.6);
+    border: none;
+    background: transparent;
     text-transform: uppercase;
-    letter-spacing: 0.12em;
-    transition: all 0.3s ease;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+    font-size: 1.2rem;
+    text-decoration: underline;
+    text-underline-offset: 6px;
+    text-decoration-thickness: 2px;
+    padding: 1.2rem 0;
+    transition: opacity 0.25s ease;
   }
 
   .banner__buttons .button--secondary:hover {
-    border-color: #ff2d55;
-    background: rgba(255, 45, 85, 0.1);
-    box-shadow: 0 0 16px rgba(255, 45, 85, 0.4);
+    border: none;
+    background: transparent;
+    box-shadow: none;
+    opacity: 0.7;
   }
 
-  /* Banner subtitle text glow */
+  /* Subtitle text — clean, no glow */
   .banner__text p {
-    letter-spacing: 0.08em;
-    text-shadow: 0 0 6px rgba(240, 230, 211, 0.3);
+    letter-spacing: 0.02em;
+    text-shadow: none;
+    font-weight: 400;
+    font-size: 1.5rem;
   }
 
-  /* Stronger overlay for dark aesthetic */
+  /* Clean bottom-up gradient overlay for text readability */
   .banner::after {
     background: linear-gradient(
       180deg,
-      rgba(10, 10, 15, 0.3) 0%,
-      rgba(10, 10, 15, 0.6) 60%,
-      rgba(10, 10, 15, 0.85) 100%
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.05) 40%,
+      rgba(0, 0, 0, 0.35) 100%
     );
   }
 {%- endstyle -%}
