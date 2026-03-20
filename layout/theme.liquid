@@ -44,6 +44,56 @@
 
     {% render 'meta-tags' %}
 
+    {%- comment -%} Organization Schema — Knowledge Panel eligibility {%- endcomment -%}
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": {{ shop.name | json }},
+        "url": "{{ request.origin }}",
+        {%- if settings.logo -%}
+          "logo": "https:{{ settings.logo | image_url: width: 500 }}",
+        {%- endif -%}
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "support@tfi-banisa.store",
+          "contactType": "customer service",
+          "availableLanguage": "English"
+        }
+        {%- liquid
+          assign social_links = ''
+          if settings.social_facebook_link != blank
+            assign social_links = social_links | append: settings.social_facebook_link | append: ','
+          endif
+          if settings.social_instagram_link != blank
+            assign social_links = social_links | append: settings.social_instagram_link | append: ','
+          endif
+          if settings.social_twitter_link != blank
+            assign social_links = social_links | append: settings.social_twitter_link | append: ','
+          endif
+          if settings.social_youtube_link != blank
+            assign social_links = social_links | append: settings.social_youtube_link | append: ','
+          endif
+          if settings.social_tiktok_link != blank
+            assign social_links = social_links | append: settings.social_tiktok_link | append: ','
+          endif
+          if settings.social_pinterest_link != blank
+            assign social_links = social_links | append: settings.social_pinterest_link | append: ','
+          endif
+        -%}
+        {%- if social_links != blank -%}
+          ,"sameAs": [
+            {%- assign links_array = social_links | split: ',' -%}
+            {%- for link in links_array -%}
+              {%- if link != blank -%}
+                {{ link | json }}{% unless forloop.last %},{% endunless %}
+              {%- endif -%}
+            {%- endfor -%}
+          ]
+        {%- endif -%}
+      }
+    </script>
+
     <script src="{{ 'constants.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'pubsub.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>

@@ -80,6 +80,7 @@
                 {% endunless %}
                 width="{{ card_product.featured_media.width }}"
                 height="{{ card_product.featured_media.height }}"
+                decoding="async"
               >
               {% comment %}theme-check-enable ImgLazyLoading{% endcomment %}
 
@@ -101,6 +102,7 @@
                   loading="lazy"
                   width="{{ card_product.media[1].width }}"
                   height="{{ card_product.media[1].height }}"
+                  decoding="async"
                 >
               {%- endif -%}
             </div>

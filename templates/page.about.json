@@ -1,0 +1,73 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "about-us": {
+      "type": "about-us",
+      "settings": {
+        "hero_title": "Our Story",
+        "hero_subtitle": "Born from a passion for anime culture and premium streetwear. We create apparel that lets you wear your fandom with pride."
+      },
+      "blocks": {
+        "brand_story": {
+          "type": "story_block",
+          "settings": {
+            "eyebrow": "Our Beginning",
+            "heading": "Where It All Started",
+            "text": "<p>What began as a simple idea between friends who loved anime and streetwear has grown into a movement. We noticed a gap in the market — anime merch that was either low quality or lacked real design thought. We set out to change that by creating premium apparel that bridges the gap between fandom and fashion.</p><p>Every piece in our collection is designed with intention, printed with care, and made to last. We believe your favorite characters deserve to be represented on clothing you're genuinely proud to wear — whether you're at a convention, on the streets, or just living your everyday life.</p>",
+            "reverse_layout": false
+          }
+        },
+        "founder": {
+          "type": "story_block",
+          "settings": {
+            "eyebrow": "The Founder",
+            "heading": "Built by a Fan, for Fans",
+            "text": "<p>Hi, I'm the founder of this brand. As a lifelong anime enthusiast and streetwear lover, I saw an opportunity to merge two worlds that rarely intersected well. I started designing from my room, testing prints, perfecting fits, and obsessing over every detail.</p><p>Today, every product still goes through the same obsessive process. I personally approve every design, test every fabric, and wear every piece before it hits the store. This isn't just a business — it's my passion made tangible.</p>",
+            "reverse_layout": true
+          }
+        },
+        "process": {
+          "type": "story_block",
+          "settings": {
+            "eyebrow": "Our Process",
+            "heading": "Designed with Intention",
+            "text": "<p>Our design process starts with the story. What moment, character, or emotion do we want to capture? From there, our artists sketch, iterate, and refine until every line feels right.</p><p>We use DTG (Direct-to-Garment) and screen printing on premium heavyweight cotton. Every color is calibrated, every placement is measured, and every piece is inspected before shipping. We don't cut corners because our community deserves the best.</p>",
+            "reverse_layout": false
+          }
+        },
+        "values": {
+          "type": "values",
+          "settings": {
+            "heading": "What We Stand For",
+            "value_1_icon": "🎨",
+            "value_1_title": "Original Design",
+            "value_1_text": "Every design is original artwork — never generic clip art. Our in-house artists and collaborators bring each piece to life with intentional detail and storytelling.",
+            "value_2_icon": "✨",
+            "value_2_title": "Premium Quality",
+            "value_2_text": "We use heavyweight cotton, DTG and screen printing methods, and pre-shrunk fabrics. Our apparel is built to survive washes and keep its shape and color.",
+            "value_3_icon": "🌍",
+            "value_3_title": "Community First",
+            "value_3_text": "We're fans first, brand second. Every drop is inspired by conversations with our community. Your feedback shapes what we create next."
+          }
+        },
+        "cta": {
+          "type": "cta",
+          "settings": {
+            "heading": "Join the Movement",
+            "text": "Explore our latest collection and find your next statement piece. Every purchase supports independent artists and our growing community.",
+            "button_label": "Shop Now",
+            "button_link": "/collections/all"
+          }
+        }
+      },
+      "block_order": ["brand_story", "founder", "process", "values", "cta"]
+    }
+  },
+  "order": ["main", "about-us"]
+}
