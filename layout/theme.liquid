@@ -7,6 +7,15 @@
     <meta name="theme-color" content="">
     <link rel="canonical" href="{{ canonical_url }}">
 
+    {%- comment -%} Preload hero banner image for LCP optimization {%- endcomment -%}
+    {%- if request.page_type == 'index' -%}
+      {%- for section_obj in content_for_layout -%}
+        {%- if section_obj.type == 'image-banner' and section_obj.settings.image != blank -%}
+          <link rel="preload" as="image" href="{{ section_obj.settings.image | image_url: width: 1920 }}" type="image/webp" fetchpriority="high">
+        {%- endif -%}
+      {%- endfor -%}
+    {%- endif -%}
+
     {%- if settings.favicon != blank -%}
       <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
     {%- endif -%}
@@ -29,6 +38,8 @@
 
     {% if page_description %}
       <meta name="description" content="{{ page_description | escape }}">
+    {% elsif settings.meta_description and settings.meta_description != blank %}
+      <meta name="description" content="{{ settings.meta_description | escape }}">
     {% endif %}
 
     {% render 'meta-tags' %}

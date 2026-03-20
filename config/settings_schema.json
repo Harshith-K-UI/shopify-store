@@ -1451,5 +1451,17 @@
         "default": "scheme-1"
       }
     ]
+  },
+  {
+    "name": "SEO",
+    "settings": [
+      {
+        "type": "textarea",
+        "id": "meta_description",
+        "label": "Default meta description",
+        "info": "Used as a fallback when pages don't have their own description. Keep under 160 characters.",
+        "default": "Shop premium apparel and streetwear. Explore our latest collections, new arrivals, and exclusive drops."
+      }
+    ]
   }
 ]

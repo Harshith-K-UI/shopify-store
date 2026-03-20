@@ -733,7 +733,53 @@
     -%}
 
     <script type="application/ld+json">
-      {{ product | structured_data }}
+      {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": {{ product.title | json }},
+        "image": [
+          {%- for image in product.images -%}
+            {{ image | image_url: width: 1200 | json }}{% unless forloop.last %},{% endunless %}
+          {%- endfor -%}
+        ],
+        "description": {{ product.description | strip_html | truncate: 5000 | json }},
+        {%- if product.selected_or_first_available_variant.sku != blank -%}
+          "sku": {{ product.selected_or_first_available_variant.sku | json }},
+        {%- endif -%}
+        "brand": {
+          "@type": "Brand",
+          "name": {{ product.vendor | json }}
+        },
+        {%- if product.metafields.reviews.rating.value != blank -%}
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": {{ product.metafields.reviews.rating.value.rating | json }},
+            "bestRating": {{ product.metafields.reviews.rating.value.scale_max | json }},
+            "ratingCount": {{ product.metafields.reviews.rating_count | json }}
+          },
+        {%- elsif product.metafields.judgeme.average_rating.value != blank -%}
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": {{ product.metafields.judgeme.average_rating.value | json }},
+            "bestRating": "5",
+            "ratingCount": {{ product.metafields.judgeme.review_count.value | default: 0 | json }}
+          },
+        {%- endif -%}
+        "offers": {
+          "@type": "Offer",
+          "url": "{{ request.origin }}{{ product.url }}",
+          "priceCurrency": {{ cart.currency.iso_code | json }},
+          "price": {{ product.selected_or_first_available_variant.price | divided_by: 100.0 | json }},
+          {%- if product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price -%}
+            "priceValidUntil": "{{ 'now' | date: '%Y-12-31' }}",
+          {%- endif -%}
+          "availability": "https://schema.org/{% if product.selected_or_first_available_variant.available %}InStock{% else %}OutOfStock{% endif %}",
+          "seller": {
+            "@type": "Organization",
+            "name": {{ shop.name | json }}
+          }
+        }
+      }
     </script>
   </div>
 </product-info>
