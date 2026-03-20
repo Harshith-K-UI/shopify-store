@@ -1,5 +1,80 @@
 {{ 'section-image-banner.css' | asset_url | stylesheet_tag }}
 
+{%- style -%}
+  /* === ANIME APPAREL — Hero Banner Enhancements === */
+
+  /* Neon glow text effect on banner headings */
+  .banner__heading {
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    text-shadow:
+      0 0 10px rgba(255, 45, 85, 0.6),
+      0 0 30px rgba(255, 45, 85, 0.3),
+      0 0 60px rgba(255, 45, 85, 0.15);
+  }
+
+  /* Subtle floating animation for banner content */
+  @keyframes bannerFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+
+  .banner__content .banner__box {
+    animation: bannerFloat 4s ease-in-out infinite;
+  }
+
+  /* Pulsing glow on primary CTA buttons */
+  @keyframes neonPulse {
+    0%, 100% { box-shadow: 0 0 8px rgba(255, 45, 85, 0.5), 0 0 20px rgba(255, 45, 85, 0.2); }
+    50% { box-shadow: 0 0 16px rgba(255, 45, 85, 0.8), 0 0 40px rgba(255, 45, 85, 0.4); }
+  }
+
+  .banner__buttons .button--primary {
+    animation: neonPulse 2.5s ease-in-out infinite;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-weight: 700;
+    border: none;
+  }
+
+  .banner__buttons .button--primary:hover {
+    animation: none;
+    box-shadow: 0 0 24px rgba(255, 45, 85, 1), 0 0 60px rgba(255, 45, 85, 0.5);
+    transform: scale(1.05);
+    transition: all 0.3s ease;
+  }
+
+  /* Secondary button — outlined with neon border */
+  .banner__buttons .button--secondary {
+    border: 2px solid rgba(255, 45, 85, 0.6);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    transition: all 0.3s ease;
+  }
+
+  .banner__buttons .button--secondary:hover {
+    border-color: #ff2d55;
+    background: rgba(255, 45, 85, 0.1);
+    box-shadow: 0 0 16px rgba(255, 45, 85, 0.4);
+  }
+
+  /* Banner subtitle text glow */
+  .banner__text p {
+    letter-spacing: 0.08em;
+    text-shadow: 0 0 6px rgba(240, 230, 211, 0.3);
+  }
+
+  /* Stronger overlay for dark aesthetic */
+  .banner::after {
+    background: linear-gradient(
+      180deg,
+      rgba(10, 10, 15, 0.3) 0%,
+      rgba(10, 10, 15, 0.6) 60%,
+      rgba(10, 10, 15, 0.85) 100%
+    );
+  }
+{%- endstyle -%}
+
 {%- if section.settings.image_height == 'adapt' and section.settings.image != blank -%}
   {%- style -%}
     @media screen and (max-width: 749px) {

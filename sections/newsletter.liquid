@@ -2,6 +2,79 @@
 {{ 'newsletter-section.css' | asset_url | stylesheet_tag }}
 
 {%- style -%}
+  /* === ANIME APPAREL — Newsletter Section === */
+
+  /* Newsletter container — subtle animated border */
+  .newsletter__wrapper {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .newsletter__wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #ff2d55, #00d4ff, transparent);
+    background-size: 200% 100%;
+    animation: shimmerBorder 3s linear infinite;
+  }
+
+  @keyframes shimmerBorder {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+
+  /* Heading styling */
+  .newsletter__wrapper h2 {
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    text-shadow: 0 0 8px rgba(255, 45, 85, 0.3);
+  }
+
+  /* Glowing input focus effect */
+  .newsletter-form .field__input {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 45, 85, 0.2);
+    transition: all 0.3s ease;
+    color: inherit;
+  }
+
+  .newsletter-form .field__input:focus {
+    border-color: #ff2d55;
+    box-shadow:
+      0 0 8px rgba(255, 45, 85, 0.4),
+      0 0 20px rgba(255, 45, 85, 0.15);
+    outline: none;
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  /* Submit button with neon gradient */
+  .newsletter-form__button {
+    background: linear-gradient(135deg, #ff2d55, #ff6b8a);
+    border: none;
+    transition: all 0.3s ease;
+  }
+
+  .newsletter-form__button:hover {
+    background: linear-gradient(135deg, #ff6b8a, #ff2d55);
+    box-shadow: 0 0 16px rgba(255, 45, 85, 0.5);
+    transform: scale(1.05);
+  }
+
+  .newsletter-form__button .svg-wrapper {
+    filter: brightness(10);
+  }
+
+  /* Success message styling */
+  .newsletter-form__message--success {
+    color: #00d4ff;
+  }
+{%- endstyle -%}
+
+{%- style -%}
   .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
     padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
