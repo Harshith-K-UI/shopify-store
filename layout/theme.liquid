@@ -36,13 +36,33 @@
       {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
     </title>
 
-    {% if page_description %}
-      <meta name="description" content="{{ page_description | escape }}">
-    {% elsif settings.meta_description and settings.meta_description != blank %}
-      <meta name="description" content="{{ settings.meta_description | escape }}">
+    {%- liquid
+      assign seo_description = page_description
+      if seo_description == blank and settings.meta_description != blank
+        assign seo_description = settings.meta_description
+      endif
+      if seo_description == blank
+        if request.page_type == 'index'
+          assign seo_description = 'Shop premium anime & gym graphic t-shirts at ' | append: shop.name | append: '. Printed in India on 240 GSM heavyweight cotton. Starting at Rs. 599.'
+        elsif request.page_type == 'collection'
+          assign seo_description = 'Browse ' | append: collection.title | append: ' at ' | append: shop.name | append: '. Premium graphic t-shirts printed in India on 240 GSM cotton. Free shipping available.'
+        elsif request.page_type == 'product'
+          assign seo_description = product.title | append: ' — Rs. ' | append: product.price | divided_by: 100.0 | append: '. Premium 240 GSM cotton, DTG printed in India. Shop now at ' | append: shop.name | append: '.'
+        elsif request.page_type == 'page'
+          assign seo_description = page.title | append: ' — ' | append: shop.name | append: '. Premium anime & gym graphic t-shirts, printed in India.'
+        elsif request.page_type == 'blog'
+          assign seo_description = blog.title | append: ' — ' | append: shop.name | append: '. Tips, trends, and guides on anime fashion and streetwear.'
+        elsif request.page_type == 'article'
+          assign seo_description = article.excerpt_or_content | strip_html | truncate: 155
+        endif
+      endif
+    -%}
+    {% if seo_description != blank %}
+      <meta name="description" content="{{ seo_description | escape }}">
     {% endif %}
 
     {% render 'meta-tags' %}
+    {% render 'breadcrumbs-schema' %}
 
     {%- comment -%} Organization Schema — Knowledge Panel eligibility {%- endcomment -%}
     <script type="application/ld+json">
@@ -54,6 +74,8 @@
         {%- if settings.logo -%}
           "logo": "https:{{ settings.logo | image_url: width: 500 }}",
         {%- endif -%}
+        "description": "Premium anime & gym graphic t-shirts, printed in India on 240 GSM heavyweight cotton. DTG and screen printing. Starting at Rs. 599.",
+        "areaServed": "IN",
         "contactPoint": {
           "@type": "ContactPoint",
           "email": "support@tfi-banisa.store",

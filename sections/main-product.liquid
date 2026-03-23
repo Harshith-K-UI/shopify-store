@@ -773,6 +773,7 @@
           {%- if product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price -%}
             "priceValidUntil": "{{ 'now' | date: '%Y-12-31' }}",
           {%- endif -%}
+          "itemCondition": "https://schema.org/NewCondition",
           "availability": "https://schema.org/{% if product.selected_or_first_available_variant.available %}InStock{% else %}OutOfStock{% endif %}",
           "seller": {
             "@type": "Organization",
