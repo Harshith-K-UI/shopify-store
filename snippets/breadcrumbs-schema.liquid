@@ -3,62 +3,133 @@
   Renders breadcrumb structured data based on page type.
 {%- endcomment -%}
 
-{%- liquid
-  assign crumbs = ''
-  assign crumb_count = 0
-
-  if request.page_type == 'product'
-    assign crumb_count = 3
-    assign crumbs = 'Home|' | append: request.origin | append: '||'
-    if product.collections.size > 0
-      assign first_collection = product.collections.first
-      assign crumbs = crumbs | append: first_collection.title | append: '|' | append: request.origin | append: first_collection.url | append: '||'
-    else
-      assign crumb_count = 2
-    endif
-    assign crumbs = crumbs | append: product.title | append: '|' | append: request.origin | append: product.url
-
-  elsif request.page_type == 'collection'
-    assign crumb_count = 2
-    assign crumbs = 'Home|' | append: request.origin | append: '||'
-    assign crumbs = crumbs | append: collection.title | append: '|' | append: request.origin | append: collection.url
-
-  elsif request.page_type == 'article'
-    assign crumb_count = 3
-    assign crumbs = 'Home|' | append: request.origin | append: '||'
-    assign crumbs = crumbs | append: blog.title | append: '|' | append: request.origin | append: blog.url | append: '||'
-    assign crumbs = crumbs | append: article.title | append: '|' | append: request.origin | append: article.url
-
-  elsif request.page_type == 'blog'
-    assign crumb_count = 2
-    assign crumbs = 'Home|' | append: request.origin | append: '||'
-    assign crumbs = crumbs | append: blog.title | append: '|' | append: request.origin | append: blog.url
-
-  elsif request.page_type == 'page'
-    assign crumb_count = 2
-    assign crumbs = 'Home|' | append: request.origin | append: '||'
-    assign crumbs = crumbs | append: page.title | append: '|' | append: request.origin | append: page.url
-  endif
--%}
-
-{%- if crumb_count > 0 -%}
+{%- if request.page_type == 'product' -%}
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       "itemListElement": [
-        {%- assign crumb_items = crumbs | split: '||' -%}
-        {%- for item in crumb_items -%}
-          {%- assign parts = item | split: '|' -%}
-          {%- if parts[0] != blank -%}
-            {
-              "@type": "ListItem",
-              "position": {{ forloop.index }},
-              "name": {{ parts[0] | json }},
-              "item": "{{ parts[1] }}"
-            }{% unless forloop.last %},{% endunless %}
-          {%- endif -%}
-        {%- endfor -%}
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "{{ request.origin }}"
+        }
+        {%- if product.collections.size > 0 -%}
+          ,{
+            "@type": "ListItem",
+            "position": 2,
+            "name": {{ product.collections.first.title | json }},
+            "item": "{{ request.origin }}{{ product.collections.first.url }}"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": {{ product.title | json }},
+            "item": "{{ request.origin }}{{ product.url }}"
+          }
+        {%- else -%}
+          ,{
+            "@type": "ListItem",
+            "position": 2,
+            "name": {{ product.title | json }},
+            "item": "{{ request.origin }}{{ product.url }}"
+          }
+        {%- endif -%}
+      ]
+    }
+  </script>
+
+{%- elsif request.page_type == 'collection' -%}
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "{{ request.origin }}"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": {{ collection.title | json }},
+          "item": "{{ request.origin }}{{ collection.url }}"
+        }
+      ]
+    }
+  </script>
+
+{%- elsif request.page_type == 'article' -%}
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "{{ request.origin }}"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": {{ blog.title | json }},
+          "item": "{{ request.origin }}{{ blog.url }}"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": {{ article.title | json }},
+          "item": "{{ request.origin }}{{ article.url }}"
+        }
+      ]
+    }
+  </script>
+
+{%- elsif request.page_type == 'blog' -%}
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "{{ request.origin }}"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": {{ blog.title | json }},
+          "item": "{{ request.origin }}{{ blog.url }}"
+        }
+      ]
+    }
+  </script>
+
+{%- elsif request.page_type == 'page' -%}
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "{{ request.origin }}"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": {{ page.title | json }},
+          "item": "{{ request.origin }}{{ page.url }}"
+        }
       ]
     }
   </script>
